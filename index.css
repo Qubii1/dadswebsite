@@ -1,0 +1,274 @@
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+
+html {
+	background-color: #040B16;
+	color: #E2EBFA;
+	font-size: clamp(12px, 1.5vw, 20px);
+}
+
+main {
+	width: 100vw;
+	height: 100vh;
+	overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+}
+
+section {
+	position: relative;
+	width: 100%;
+	height: 100vh;
+	overflow: hidden;
+	z-index: 2;
+	scroll-snap-align: start;
+}
+
+h1, h2, h3, h4, p {
+	font-family: "League Spartan", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+
+
+h1 {
+	font-size: 4em;
+	text-transform: uppercase;
+}
+h2 {
+	font-size: 1.75em;
+}
+
+h3, h4 {
+	font-weight: 600;
+	font-size: 1.25rem;
+}
+
+h4 {
+	padding: 0.5em 1em;
+	border-radius: 1em;
+	opacity: 0;
+	transition: opacity 1s ease;
+}
+
+
+p {
+	line-height: 1.5;
+	transition: opacity 0.75s ease;
+	font-size: 1.25em;
+	opacity: 0;
+}
+
+#hero {
+	display: grid;
+	grid-template-columns: 1fr 2fr;
+}
+
+
+#recipient-box {
+	text-align: center;
+	display: flex;
+	flex-flow: column nowrap;
+	align-items: center;
+	gap: 24px;
+	place-content: center;
+}
+
+#recipient-photo {
+	width: clamp(250px, 40vw, 500px);
+	height: clamp(250px, 40vw, 500px);
+	border-radius: 100%;
+	background-image: url('troy.jpg');
+	background-position: center;
+	background-size: cover;
+}
+
+
+
+
+#award {
+	bottom: 0;
+	//left: 50%;
+	//translate: -50% 0;
+	place-content: end;
+	place-items: center;
+}
+
+#award-tag {
+	margin-bottom: 1em;
+	font-size: 1.3em;
+	text-align: center;
+}
+
+#award-inner {
+	position: relative;
+	width: clamp(150px, 40vw, 450px);
+	height: clamp(150px, 40vw, 450px);
+}
+
+#award-inner::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 90%;
+	left: 50%;
+	translate: -50% 0;
+	background-image: radial-gradient(farthest-side at 50% 40%, rgba(4, 11, 22, 0.6) 29%, transparent), linear-gradient(to bottom, rgba(4, 11, 22, 0.9) 15%, transparent), linear-gradient(to top, rgba(36, 198, 190, 1.0), transparent);
+	z-index: -1;
+	opacity: 0.6;
+	filter: blur(15px);
+}
+
+
+#super-dad {
+	position: relative;
+	bottom: 0;
+}
+
+
+.question-box-inner {
+	position: relative;
+	height: 100%;
+	width: 100%;
+	padding: 20px 8.3vw 5vw;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	row-gap: 10%;
+}
+
+.button-box {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 1em;
+	position: relative;
+}
+
+
+
+h2 span {
+	display: block;
+	font-size: .5em;
+	font-weight: 300;
+}
+
+
+
+
+
+@keyframes float {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-8px); }
+  100% { transform: translateY(0); }
+}
+
+.button-box h3 {
+  animation: float 3s ease-in-out infinite;
+  transition: transform 0.3s ease;
+}
+
+/* Snap back on hover */
+.button-box h3:hover {
+  animation: none;
+  transform: translateY(0) scale(1.05); /* subtle pop */
+}
+
+h3 span {
+	position: relative;
+	display: block;
+	left: 50%;
+	transform: translateX(-50%);
+	padding: 0.5em 1em;
+	width: fit-content;
+	border-radius: 1em;
+	cursor: pointer;
+	text-shadow: 0 0 .2em rgba(0, 0, 0, 0.4);
+	transition: all 0.5s ease;
+}
+.dalton-button span { background: #276BD7; box-shadow: 0 0 1vw rgba(122, 164, 231, 0.5);}
+.kyra-button span { background: #DB3941; box-shadow: 0 0 1vw rgba(234, 142, 146, 0.5);}
+.quinn-button span { background: #C68824; box-shadow: 0 0 1vw rgba(237, 206, 156, 0.5);}
+
+.answer {
+  position: absolute;
+  width: 100%;
+  top: 25%;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2em 16.7vw 0; /* add top padding instead of vertical centering */
+  pointer-events: none;
+}
+
+
+
+.dalton h4 {background: #276BD7;}
+.kyra h4 {background: #DB3941;}
+.quinn h4 {background: #C68824;}
+.dalton h4:hover {box-shadow: 0 0 1vw rgba(122, 164, 231, 0.5);}
+.kyra h4:hover {box-shadow: 0 0 1vw rgba(234, 142, 146, 0.5);}
+.quinn h4:hover {box-shadow: 0 0 1vw rgba(237, 206, 156, 0.5);}
+
+
+
+.moving {
+  position: absolute;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+  z-index: 1000;
+}
+
+.active {
+	pointer-events: auto;
+}
+
+.active h4  {
+	opacity: 1;
+	cursor: pointer;
+}
+
+.active p{
+	opacity: 1;
+	transition-delay: 800ms;
+}
+
+.hidden {
+	opacity: 0;
+}
+
+
+
+@media screen and (orientation: portrait) {
+	#hero {
+		display: grid;
+		grid-template-columns: 1fr;
+	}
+
+	#recipient-box { place-content: start; }
+
+	#award-inner {
+		border-radius: 100%;
+		overflow: clip;
+	}
+
+	#award { place-content: center; }
+
+}
+
+@media screen and (max-height: 500) {
+
+	#recipient-photo { 
+		width: 100px;
+		height: 100px; 
+		 
+	}
+
+}
