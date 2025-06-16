@@ -73,3 +73,13 @@ document.querySelectorAll('.question-box').forEach(section => {
     });
   });
 });
+    
+let award = document.getElementById('award');     
+let recipient = document.getElementById('recipient-box');      
+window.addEventListener("load", (event) => {
+  setTimeout(() => {
+      award.classList.remove('set-up');
+      recipient.classList.remove('set-up');
+  }, 500);
+  
+});

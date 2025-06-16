@@ -86,18 +86,38 @@ p {
 	background-image: url('troy.jpg');
 	background-position: center;
 	background-size: cover;
+	transition: opacity 1s ease 300ms;
 }
+
+#recipient-box h1 {
+	transition: opacity 1s ease 100ms;
+}
+
+#recipient-box.set-up h1 {
+	opacity: 0;
+}
+
+#recipient-box.set-up #recipient-photo {
+	opacity: 0;
+}
+
 
 
 
 
 #award {
-	bottom: 0;
-	//left: 50%;
-	//translate: -50% 0;
+	position: relative;
+	bottom: 0;	
+	transform-origin: bottom;
 	place-content: end;
 	place-items: center;
+	transition: transform 1s ease;
 }
+
+#award.set-up {
+	transform: scale(1.3) translateX(75%);
+}
+
 
 #award-tag {
 	margin-bottom: 1em;
